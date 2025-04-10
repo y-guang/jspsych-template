@@ -16,6 +16,9 @@ remove everything unnecessary from `src` and `index.html`
 
 ## setup hello world
 
+install the dependencies.
+
 ```bash
 npm install @jspsych/plugin-html-keyboard-response
+npm install terser --save-dev
 ```

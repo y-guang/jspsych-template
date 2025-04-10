@@ -16,9 +16,6 @@ export const setContext = <K extends keyof AppContext>(key: K, value: AppContext
 
 export const getContext = <K extends keyof AppContext>(key: K): AppContext[K] | undefined => {
     const value = appContext[key];
-    if (value === undefined) {
-        throw new Error(`Context value for key "${String(key)}" has not been set.`);
-    }
     return value;
 }
 

@@ -1,24 +1,14 @@
+import { initJsPsych, TrialType } from 'jspsych'
+import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
+import 'jspsych/css/jspsych.css'
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const jsPsych = initJsPsych();
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const hello_trial = {
+  type: htmlKeyboardResponse,
+  stimulus: 'Hello world!',
+  choices: ["NO_KEYS"],
+} satisfies Partial<TrialType<typeof htmlKeyboardResponse.info>>
+
+jsPsych.run([hello_trial]);

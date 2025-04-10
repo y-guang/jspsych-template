@@ -20,7 +20,10 @@ function generateFileStem(): string {
     return `${startTimeString}_${participantId}`
 }
 
-export function generateSaveResultTrial(format: string) {
+export function generateSaveResultTrial(
+    format: string,
+    backupInLocalStorage: boolean = true,
+) {
     const trial = {
         type: htmlKeyboardResponse,
         // @ts-ignore
@@ -31,9 +34,19 @@ export function generateSaveResultTrial(format: string) {
         },
         choices: ["NO_KEYS"],
         on_load: () => {
+            const jsPsych = getContext('jsPsych')!
+            const filename = `${generateFileStem()}.${format}`
+
+            if (backupInLocalStorage) {
+                try {
+                    const data = jsPsych.data.get().json()
+                    localStorage.setItem('jsPsychExperimentResult', data)
+                } catch (e) {
+                    console.warn('Failed to backup data to localStorage', e)
+                }
+            }
+
             function saveFile() {
-                const jsPsych = getContext('jsPsych')!
-                const filename = `${generateFileStem()}.${format}`
                 jsPsych.data.get().localSave(format, filename)
             }
 

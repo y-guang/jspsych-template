@@ -4,7 +4,7 @@ import type { JsPsych } from 'jspsych';
 type AppContext = {
     jsPsych: JsPsych;
     startTime: Date;
-    participantId: string;
+    experimentId: string;
 }
 
 // Internal mutable object

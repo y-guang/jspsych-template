@@ -1,21 +1,16 @@
 import { TrialType } from 'jspsych'
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
+import { generateLocalDatetimeFilenameSafeString } from '../util/datetime';
 import { getContext } from '../app-context';
 import rawStimulusTemplate from './save-data.html?raw'
 import Handlebars from 'handlebars'
-
-function generateFilenameSafeISOString(date: Date): string {
-    return date.toISOString()
-        .replace(/:/g, '-')
-        .replace('T', '_')
-}
 
 const stimulusTemplate = Handlebars.compile(rawStimulusTemplate)
 
 function generateFileStem(): string {
     const startTime = getContext('startTime')!
-    const startTimeString = generateFilenameSafeISOString(startTime)
-    const participantId = getContext('participantId') ?? 'unknown'
+    const startTimeString = generateLocalDatetimeFilenameSafeString(startTime)
+    const participantId = getContext('experimentId') ?? 'unknown'
 
     return `${startTimeString}_${participantId}`
 }

@@ -1,3 +1,7 @@
+/**
+ * Generate a unique id. Assumes that the function is called at most once per millisecond.
+ * @returns a unique id string.
+ */
 export function generateUid(): string {
     const chars = 'aAbBcdDeEfFgGhHjkmnopqQrRstTuvwxyz23456789'
     const length = chars.length
@@ -17,4 +21,14 @@ export function generateUid(): string {
     }
 
     return date
+}
+
+
+/**
+ * Convert a uid string to a display format. The display uid is formatted as 4 characters per group, separated by dashes.
+ * @param uid - The uid to convert.
+ * @returns The display uid.
+ */
+export function toDisplayUid(uid: string): string {
+    return uid.replace(/(.{4})/g, '$1-').trim()
 }

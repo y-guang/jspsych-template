@@ -26,6 +26,10 @@ export function generateSaveResultTrial(
 ) {
     const trial = {
         type: htmlKeyboardResponse,
+        data: {
+            trial_name: 'util_save_data',
+            format,
+        },
         // @ts-ignore
         stimulus: () => {
             return stimulusTemplate({

@@ -15,11 +15,14 @@ const jsPsych = initJsPsych({
 setContext('jsPsych', jsPsych)
 setContext('startTime', new Date())
 
-const saveData = generateSaveResultTrial('csv')
+const saveData = generateSaveResultTrial('json')
 
 const helloTrial = {
     type: htmlKeyboardResponse,
     stimulus: 'Hello world!',
+    on_finish: (data) => {
+        delete data.stimulus
+    },
 } satisfies Partial<TrialType<typeof htmlKeyboardResponse.info>>
 
 jsPsych.run([

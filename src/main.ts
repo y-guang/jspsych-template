@@ -8,15 +8,21 @@ import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import 'jspsych/css/jspsych.css'
 import './style.css'
 
+// setup
 const jsPsych = initJsPsych({
     on_finish: () => {
         jsPsych.data.displayData()
     }
 });
+const sessionId = generateUid()
+
+// prepare the shared context
 setContext('jsPsych', jsPsych)
 setContext('startTime', new Date())
-setContext('experimentId', generateUid())
+setContext('sessionId', sessionId)
+setContext('externalId', jsPsych.data.getURLVariable('external_id') ?? null)
 
+// generate the trials
 const saveData = generateSaveResultTrial('json')
 
 const helloTrial = {
@@ -29,7 +35,7 @@ const helloTrial = {
 
 jsPsych.run([
     enterFullscreen,
-    hideMouse, 
+    hideMouse,
     helloTrial,
     showMouse,
     exitFullscreen,

@@ -1,10 +1,15 @@
+/**
+ * This module provides a simple context management system for the application.
+ * It manages all runtime state.
+ */
 import type { JsPsych } from 'jspsych';
 
 // Define your context type
 type AppContext = {
     jsPsych: JsPsych;
     startTime: Date;
-    experimentId: string;
+    sessionId: string;
+    externalId: string | null;
 }
 
 // Internal mutable object
@@ -20,5 +25,5 @@ export const getContext = <K extends keyof AppContext>(key: K): AppContext[K] | 
 }
 
 export const getAllContext = () => {
-    return appContext as AppContext;
+    return appContext
 }

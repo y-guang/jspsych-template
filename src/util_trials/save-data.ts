@@ -10,7 +10,7 @@ const stimulusTemplate = Handlebars.compile(rawStimulusTemplate)
 function generateFileStem(): string {
     const startTime = getContext('startTime')!
     const startTimeString = generateLocalDatetimeFilenameSafeString(startTime)
-    const participantId = getContext('experimentId') ?? 'unknown'
+    const participantId = getContext('sessionId') ?? 'unknown'
 
     return `${startTimeString}_${participantId}`
 }

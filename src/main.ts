@@ -3,6 +3,7 @@ import { hideMouse, showMouse } from './util_trials/hide-mouse';
 import { generateSaveResultTrial } from './util_trials/save-data';
 import { enterFullscreen, exitFullscreen } from './util_trials/fullscreen';
 import { checkBrowserInfo } from './util_trials/check-browser';
+import { recordSessionMeta } from './util_trials/record-session-meta';
 import { generateUid } from './util/uid';
 import { setContext } from './app-context';
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
@@ -20,6 +21,7 @@ const sessionId = generateUid()
 // prepare the shared context
 setContext('jsPsych', jsPsych)
 setContext('startTime', new Date())
+setContext('experimentId', 'placeholder') // TODO: replace with actual experiment ID
 setContext('sessionId', sessionId)
 setContext('externalId', jsPsych.data.getURLVariable('external_id') ?? null)
 
@@ -41,5 +43,6 @@ jsPsych.run([
     helloTrial,
     showMouse,
     exitFullscreen,
+    recordSessionMeta,
     saveData,
 ]);

@@ -8,9 +8,17 @@ import type { JsPsych } from 'jspsych';
 type AppContext = {
     jsPsych: JsPsych;
     startTime: Date;
+    experimentId: string;
     sessionId: string;
     externalId: string | null;
 }
+
+const persistableFields: (keyof AppContext)[] = [
+    'startTime',
+    'experimentId',
+    'sessionId',
+    'externalId',
+]
 
 // Internal mutable object
 const appContext: Partial<AppContext> = {}
@@ -26,4 +34,15 @@ export const getContext = <K extends keyof AppContext>(key: K): AppContext[K] | 
 
 export const getAllContext = () => {
     return appContext
+}
+
+export const getPersistableContext = () => {
+    const persistableContext: Partial<AppContext> = {};
+    persistableFields.forEach(<K extends keyof AppContext>(field: K) => {
+        const value = appContext[field];
+        if (value !== undefined) {
+            persistableContext[field] = value;
+        }
+    });
+    return persistableContext;
 }

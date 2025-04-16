@@ -14,6 +14,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "@jspsych/plugin-browser-check": "^2.1.0",
     "@jspsych/plugin-fullscreen": "^2.1.0",
     "@jspsych/plugin-html-keyboard-response": "^2.1.0",
     "@jspsych/plugin-survey-text": "^2.1.0",

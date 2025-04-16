@@ -1,6 +1,7 @@
 /**
  * This module provides a simple context management system for the application.
  * It manages all runtime state.
+ * If anything is determined before the experiment starts, it should be in the config module.
  */
 import type { JsPsych } from 'jspsych';
 

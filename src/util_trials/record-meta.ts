@@ -8,10 +8,10 @@ import { config } from '../config';
 import { getPersistableContext } from '../app-context';
 import { assignSnakeKeys } from '../util/string';
 
-export const recordSessionMeta = {
+export const recordContext = {
     type: callFunction,
     data: {
-        trial_name: 'util_record_session_meta',
+        trial_name: 'util_record_context',
     },
     func: () => {},
     on_finish: (data) => {

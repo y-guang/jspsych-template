@@ -3,7 +3,7 @@ import { hideMouse, showMouse } from './util_trials/hide-mouse';
 import { generateSaveResultTrial } from './util_trials/save-data';
 import { enterFullscreen, exitFullscreen } from './util_trials/fullscreen';
 import { checkBrowserInfo } from './util_trials/check-browser';
-import { recordSessionMeta, recordConfig } from './util_trials/record-meta';
+import { recordContext, recordConfig } from './util_trials/record-meta';
 import { generateUid } from './util/uid';
 import { setContext } from './app-context';
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
@@ -43,7 +43,7 @@ jsPsych.run([
     helloTrial,
     showMouse,
     exitFullscreen,
-    recordSessionMeta,
+    recordContext,
     recordConfig,
     saveData,
 ]);

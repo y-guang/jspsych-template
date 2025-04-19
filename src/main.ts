@@ -9,6 +9,7 @@ import { initContext } from './app-context';
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import 'jspsych/css/jspsych.css'
 import './style.css'
+import { displaySessionInfo } from './util_trials/display-session-info';
 
 // setup
 const jsPsych = initJsPsych({
@@ -33,6 +34,7 @@ const helloTrial = {
 
 jsPsych.run([
     checkBrowserInfo,
+    displaySessionInfo,
     enterFullscreen,
     optionalChinrestCalibration,
     hideMouse,

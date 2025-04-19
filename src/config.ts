@@ -8,6 +8,7 @@
 
 // static field
 const debug = false
+const experimentId = 'placeholder' // TODO: replace with actual experiment ID
 const pixPerDeg = 100 // pixels per degree of visual angle.
 
 // computed
@@ -15,4 +16,5 @@ const pixPerDeg = 100 // pixels per degree of visual angle.
 export const config = {
     debug,
     pixPerDeg,
+    experimentId,
 } as const

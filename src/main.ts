@@ -5,8 +5,7 @@ import { enterFullscreen, exitFullscreen } from './util_trials/fullscreen';
 import { checkBrowserInfo } from './util_trials/check-browser';
 import { recordContext, recordConfig } from './util_trials/record-meta';
 import { optionalChinrestCalibration } from './util_trials/calibrate';
-import { generateUid } from './util/uid';
-import { setContext } from './app-context';
+import { initContext } from './app-context';
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import 'jspsych/css/jspsych.css'
 import './style.css'
@@ -17,14 +16,9 @@ const jsPsych = initJsPsych({
         jsPsych.data.displayData()
     }
 });
-const sessionId = generateUid()
 
 // prepare the shared context
-setContext('jsPsych', jsPsych)
-setContext('startTime', new Date())
-setContext('experimentId', 'placeholder') // TODO: replace with actual experiment ID
-setContext('sessionId', sessionId)
-setContext('externalId', jsPsych.data.getURLVariable('external_id') ?? null)
+initContext(jsPsych)
 
 // generate the trials
 const saveData = generateSaveResultTrial('json')

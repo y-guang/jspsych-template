@@ -8,3 +8,9 @@ export function assignSnakeKeys(target: Record<string, any>, source: Record<stri
         target[snakeKey] = source[key];
     }
 }
+
+/**
+ * Escape a string for safe use in a RegExp pattern.
+ */
+export const escapeRegExp = (str: string): string =>
+    str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

@@ -4,6 +4,7 @@ import { generateSaveResultTrial } from './util_trials/save-data';
 import { enterFullscreen, exitFullscreen } from './util_trials/fullscreen';
 import { checkBrowserInfo } from './util_trials/check-browser';
 import { recordContext, recordConfig } from './util_trials/record-meta';
+import { optionalChinrestCalibration } from './util_trials/calibrate';
 import { generateUid } from './util/uid';
 import { setContext } from './app-context';
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
@@ -39,6 +40,7 @@ const helloTrial = {
 jsPsych.run([
     checkBrowserInfo,
     enterFullscreen,
+    optionalChinrestCalibration,
     hideMouse,
     helloTrial,
     showMouse,

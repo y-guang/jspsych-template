@@ -33,6 +33,32 @@ export const getContext = <K extends keyof AppContext>(key: K): AppContext[K] | 
     return value;
 }
 
+export const setLocalStorage = (key: string, value: unknown) => {
+    const prefix = appContext.experimentId ?? 'unknown';
+    const fullKey = `exp:${prefix}:${key}`;
+    const stringValue = JSON.stringify(value);
+
+    try {
+        localStorage.setItem(fullKey, stringValue);
+    } catch (e) {
+        console.warn(`Failed to set localStorage for key ${fullKey}`, e);
+    }
+};
+
+export const getLocalStorage = (key: string): unknown => {
+    const prefix = appContext.experimentId ?? 'unknown';
+    const fullKey = `exp:${prefix}:${key}`;
+    const value = localStorage.getItem(fullKey);
+    if (value === null) return null;
+
+    try {
+        return JSON.parse(value);
+    } catch (e) {
+        console.warn(`Failed to parse localStorage for key ${fullKey}`, e);
+        return null;
+    }
+};
+
 export const getAllContext = () => {
     return appContext
 }

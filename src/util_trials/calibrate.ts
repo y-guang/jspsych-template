@@ -54,6 +54,9 @@ export const scaleContent = {
             console.warn('No scale factor found. Skipping scaling content.')
         }
     },
+    on_finish: (data) => {
+        data.scale_factor = scaleFactor
+    }
 } satisfies Partial<TrialType<typeof callFunction.info>>
 
 
@@ -64,7 +67,7 @@ export const scaleContent = {
 const askSkipChinrest = {
     type: htmlButtonResponse,
     data: {
-        trial_name: 'util_skip_chinrest',
+        trial_name: 'util_ask_skip_chinrest',
     },
     // @ts-ignore
     stimulus: () => {
@@ -84,9 +87,9 @@ const askSkipChinrest = {
 
         return template({ prompt })
     },
-    choices:['Skip calibration', 'Calibration'],
+    choices:['Calibration', 'Skip calibration'],
     on_finish: (data) => {
-        if (data.response === 0) {
+        if (data.response === 1) {
             skipChinrest = true
         } else {
             skipChinrest = false

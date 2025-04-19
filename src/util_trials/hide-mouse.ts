@@ -9,6 +9,7 @@ export const hideMouse = {
     func: () => {
         document.body.style.cursor = 'none';
     },
+    record_data: false,
 } satisfies Partial<TrialType<typeof callFunction.info>>
 
 export const showMouse = {
@@ -19,4 +20,5 @@ export const showMouse = {
     func: () => {
         document.body.style.cursor = 'auto';
     },
+    record_data: false,
 } satisfies Partial<TrialType<typeof callFunction.info>>

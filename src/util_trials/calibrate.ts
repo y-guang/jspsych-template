@@ -91,6 +91,7 @@ const askSkipChinrest = {
         } else {
             skipChinrest = false
         }
+        delete data.stimulus
     }
 } satisfies Partial<TrialType<typeof htmlButtonResponse.info>>
 

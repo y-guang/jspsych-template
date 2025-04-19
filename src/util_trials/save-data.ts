@@ -1,7 +1,7 @@
 import { TrialType } from 'jspsych'
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import { generateLocalDatetimeFilenameSafeString } from '../util/datetime';
-import { getContext } from '../app-context';
+import { getContext, setLocalStorage } from '../app-context';
 import rawStimulusTemplate from './save-data.html?raw'
 import Handlebars from 'handlebars'
 
@@ -39,7 +39,7 @@ export function generateSaveResultTrial(
             if (backupInLocalStorage) {
                 try {
                     const data = jsPsych.data.get().json()
-                    localStorage.setItem('jsPsychExperimentResult', data)
+                    setLocalStorage('experimentResult', data)
                 } catch (e) {
                     console.warn('Failed to backup data to localStorage', e)
                 }

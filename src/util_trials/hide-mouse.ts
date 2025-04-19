@@ -1,28 +1,22 @@
 import { TrialType } from 'jspsych'
-import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
+import callFunction from '@jspsych/plugin-call-function';
 
 export const hideMouse = {
-    type: htmlKeyboardResponse,
+    type: callFunction,
     data: {
         trial_name: 'util_hide_mouse'
     },
-    stimulus: '',
-    choices: ["NO_KEYS"],
-    trial_duration: 0,
-    on_load: () => {
+    func: () => {
         document.body.style.cursor = 'none';
     },
-} satisfies Partial<TrialType<typeof htmlKeyboardResponse.info>>
+} satisfies Partial<TrialType<typeof callFunction.info>>
 
 export const showMouse = {
-    type: htmlKeyboardResponse,
+    type: callFunction,
     data: {
         trial_name: 'util_show_mouse'
     },
-    stimulus: '',
-    choices: ["NO_KEYS"],
-    trial_duration: 0,
-    on_load: () => {
+    func: () => {
         document.body.style.cursor = 'auto';
     },
-} satisfies Partial<TrialType<typeof htmlKeyboardResponse.info>>
+} satisfies Partial<TrialType<typeof callFunction.info>>

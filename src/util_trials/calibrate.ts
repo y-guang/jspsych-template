@@ -1,4 +1,4 @@
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import virtualChinrest from '@jspsych/plugin-virtual-chinrest';
 import callFunction from '@jspsych/plugin-call-function';
 import htmlButtonResponse from '@jspsych/plugin-html-button-response';
@@ -69,7 +69,7 @@ const askSkipChinrest = {
     data: {
         trial_name: 'util_ask_skip_chinrest',
     },
-    // @ts-ignore
+    // @ts-expect-error jsPsych supports function stimuli at runtime, but TrialType only accepts a string.
     stimulus: () => {
         const template = Handlebars.compile(rawAskSkipChinrestTemplate)
 
@@ -88,7 +88,7 @@ const askSkipChinrest = {
         return template({ prompt })
     },
     choices:['Calibration', 'Skip calibration'],
-    on_finish: (data) => {
+    on_finish: (data: Record<string, unknown>) => {
         if (data.response === 1) {
             skipChinrest = true
         } else {

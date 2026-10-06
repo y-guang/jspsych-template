@@ -1,4 +1,4 @@
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import fullscreen from '@jspsych/plugin-fullscreen';
 
 export const enterFullscreen = {

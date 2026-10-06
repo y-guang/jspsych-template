@@ -1,4 +1,4 @@
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import htmlButtonResponse from '@jspsych/plugin-html-button-response';
 import { getContext } from '../app-context';
 import rawStimulusTemplate from './display-session-id.html?raw'
@@ -12,7 +12,7 @@ export const displaySessionId = {
     data: {
         trial_name: 'util_display_session_id',
     },
-    // @ts-ignore
+    // @ts-expect-error jsPsych supports function stimuli at runtime, but TrialType only accepts a string.
     stimulus: () => {
         const sessionId = toDisplayUid(getContext('sessionId') as string)
         return stimulusTemplate({

@@ -1,4 +1,4 @@
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import browserCheck from '@jspsych/plugin-browser-check';
 
 export const checkBrowserInfo = {

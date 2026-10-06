@@ -1,4 +1,4 @@
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import { generateLocalDatetimeFilenameSafeString } from '../util/datetime';
 import { getContext, setLocalStorage } from '../app-context';
@@ -16,7 +16,7 @@ function generateFileStem(): string {
 }
 
 export function generateSaveResultTrial(
-    format: string,
+    format: 'json' | 'csv',
     backupInLocalStorage: boolean = true,
 ) {
     const trial = {
@@ -25,13 +25,14 @@ export function generateSaveResultTrial(
             trial_name: 'util_save_data',
             format,
         },
-        // @ts-ignore
+        // @ts-expect-error jsPsych supports function stimuli at runtime, but TrialType only accepts a string.
         stimulus: () => {
             return stimulusTemplate({
                 format,
             })
         },
-        choices: ["NO_KEYS"],
+        choices: "NO_KEYS",
+        wait_for_key_release: false,
         on_load: () => {
             const jsPsych = getContext('jsPsych')!
             const filename = `${generateFileStem()}.${format}`

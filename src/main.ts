@@ -1,4 +1,4 @@
-import { initJsPsych, TrialType } from 'jspsych'
+import { initJsPsych, type TrialType } from 'jspsych'
 import { hideMouse, showMouse } from './util_trials/hide-mouse';
 import { generateSaveResultTrial } from './util_trials/save-data';
 import { enterFullscreen, exitFullscreen } from './util_trials/fullscreen';
@@ -26,7 +26,11 @@ const saveData = generateSaveResultTrial('json')
 
 const helloTrial = {
     type: htmlKeyboardResponse,
+    data: {
+        trial_name: 'hello',
+    },
     stimulus: 'Hello world!',
+    wait_for_key_release: false,
     on_finish: (data) => {
         delete data.stimulus
     },

@@ -1,4 +1,4 @@
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import callFunction from '@jspsych/plugin-call-function';
 
 export const hideMouse = {

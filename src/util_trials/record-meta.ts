@@ -2,7 +2,7 @@
  * gether metadata for this session.
  */
 
-import { TrialType } from 'jspsych'
+import type { TrialType } from 'jspsych'
 import callFunction from '@jspsych/plugin-call-function';
 import { config } from '../config';
 import { getPersistableContext } from '../app-context';

@@ -5,7 +5,7 @@
 Init a new Vite project with the following options:
 
 ```bash
-npm create vite@latest
+pnpm create vite
 Vanilla
 TypeScript
 ```
@@ -19,6 +19,6 @@ remove everything unnecessary from `src` and `index.html`
 install the dependencies.
 
 ```bash
-npm install @jspsych/plugin-html-keyboard-response
-npm install terser --save-dev
+pnpm add @jspsych/plugin-html-keyboard-response
+pnpm add -D terser
 ```

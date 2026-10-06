@@ -32,8 +32,14 @@ Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, sim
 
 - RESTful API design by default.
 
+### jsPsych
+
 ### jsPsych Trial Data
 
 - For all data recorded into jsPsych trial records, use `snake_case` field names.
 - Every trial must record `trial_name`, uniquely identifying its trial definition.
 - Prefix utility trial names with `util_` so they can be filtered out later.
+
+#### version
+
+Pin jsPsych and its plugin versions; upgrade manually after reviewing changelogs and validating experiment behavior and exported data.

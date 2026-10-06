@@ -26,6 +26,10 @@ pnpm build
 
 ## Conventions
 
+### Dependency Updates
+
+Pin jsPsych and plugin versions; upgrade manually after reviewing changelogs and validating experiment behavior and exported data.
+
 ### Variable Naming
 
 - CamelCase is used for all internal variables and functions.

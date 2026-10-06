@@ -167,31 +167,31 @@ importers:
   .:
     dependencies:
       '@jspsych/plugin-browser-check':
-        specifier: ^2.1.0
+        specifier: 2.1.0
         version: 2.1.0(jspsych@8.3.0)
       '@jspsych/plugin-call-function':
-        specifier: ^2.1.0
+        specifier: 2.1.0
         version: 2.1.0(jspsych@8.3.0)
       '@jspsych/plugin-fullscreen':
-        specifier: ^2.1.0
+        specifier: 2.1.0
         version: 2.1.0(jspsych@8.3.0)
       '@jspsych/plugin-html-button-response':
-        specifier: ^2.1.0
+        specifier: 2.1.0
         version: 2.1.0(jspsych@8.3.0)
       '@jspsych/plugin-html-keyboard-response':
-        specifier: ^2.2.0
+        specifier: 2.2.0
         version: 2.2.0(jspsych@8.3.0)
       '@jspsych/plugin-survey-text':
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1(jspsych@8.3.0)
       '@jspsych/plugin-virtual-chinrest':
-        specifier: ^3.1.0
+        specifier: 3.1.0
         version: 3.1.0(jspsych@8.3.0)
       handlebars:
         specifier: ^4.7.8
         version: 4.7.9
       jspsych:
-        specifier: ^8.3.0
+        specifier: 8.3.0
         version: 8.3.0
     devDependencies:
       terser:

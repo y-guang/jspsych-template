@@ -3,7 +3,8 @@ import virtualChinrest from '@jspsych/plugin-virtual-chinrest';
 import callFunction from '@jspsych/plugin-call-function';
 import htmlButtonResponse from '@jspsych/plugin-html-button-response';
 import { config } from '../config';
-import { getContext, setLocalStorage, getLocalStorage } from '../app-context';
+import { getContext } from '../app-context';
+import { setLocalStorage, getLocalStorage } from '../util/local-storage';
 import Handlebars from 'handlebars'
 import rawAskSkipChinrestTemplate from './calibrate-ask-skip-chinrest.html?raw'
 

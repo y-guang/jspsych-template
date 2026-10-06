@@ -1,7 +1,8 @@
 import type { TrialType } from 'jspsych'
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import { generateLocalDatetimeFilenameSafeString } from '../util/datetime';
-import { getContext, setLocalStorage } from '../app-context';
+import { getContext } from '../app-context';
+import { setLocalStorage } from '../util/local-storage';
 import rawStimulusTemplate from './save-data.html?raw'
 import Handlebars from 'handlebars'
 

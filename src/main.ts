@@ -6,6 +6,7 @@ import { checkBrowserInfo } from './util_trials/check-browser';
 import { recordContext, recordConfig } from './util_trials/record-meta';
 import { optionalChinrestCalibration } from './util_trials/calibrate';
 import { initContext } from './app-context';
+import { initLocalStorage } from './util/local-storage';
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import 'jspsych/css/jspsych.css'
 import './style.css'
@@ -20,6 +21,7 @@ const jsPsych = initJsPsych({
 
 // prepare the shared context
 initContext(jsPsych)
+initLocalStorage()
 
 // generate the trials
 const saveData = generateSaveResultTrial('json')

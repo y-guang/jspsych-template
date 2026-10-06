@@ -4,6 +4,7 @@ export default defineConfig({
     root: '.',
     build: {
         outDir: 'dist',
+        target: ['chrome87', 'edge88', 'firefox78', 'safari14'],
         // compresses and minifies the code
         minify: 'terser',
         terserOptions: {
@@ -17,11 +18,13 @@ export default defineConfig({
             }
         },
 
-        rollupOptions: {
+        rolldownOptions: {
             input: 'index.html',
             output: {
                 entryFileNames: 'main.js',
-                assetFileNames: 'style.css',
+                assetFileNames: (asset) => asset.names.some((name) => name.endsWith('.css'))
+                    ? 'style.css'
+                    : 'assets/[name]-[hash][extname]',
             }
         }
     },
